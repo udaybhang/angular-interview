@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of userData">
+            <td>{{data?.first_name}}</td>
+            <td>{{data?.last_name}}</td>
+        </tr>
+    </tbody>
+  </table>

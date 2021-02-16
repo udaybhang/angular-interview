@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BridgeService } from '../bridge.service';
 
 @Component({
@@ -8,10 +9,12 @@ import { BridgeService } from '../bridge.service';
 })
 export class RegisterComponent implements OnInit {
   model: any = {};
-  constructor(private bridgeService: BridgeService) { }
+  constructor(private bridgeService: BridgeService, private router: Router) { }
   register() {
-    this.bridgeService.getData(this.model).subscribe(data=>{
+    this.bridgeService.postData(this.model).subscribe(data=>{
       console.log(data);
+      this.router.navigate(['dashboard']);
+
     },(error)=>{
       alert(error.error.message);
     })
